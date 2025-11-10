@@ -4,8 +4,9 @@
  * @returns {string} - Star emoji string
  */
 export const getRatingStars = (rating) => {
+  rating = Number(rating);
   let stars = 0;
-  
+
   if (rating >= 0 && rating < 2) {
     stars = 1;
   } else if (rating >= 2 && rating < 4) {
@@ -17,10 +18,22 @@ export const getRatingStars = (rating) => {
   } else if (rating >= 8 && rating <= 10) {
     stars = 5;
   }
-  
-  return '⭐'.repeat(stars);
+
+  return "⭐".repeat(stars);
 };
 
+/**
+ * Converts a time of a film of minutes to hours and minutes.
+ * @param {number} minutes - Movie time duration.
+ * @returns {string} - Star emoji string.
+ */
 export const formatDuration = (minutes) => {
-
+  const totalMinutes = Number(minutes);
+  if (totalMinutes < 60) {
+    return `${totalMinutes}min`;
+  } else {
+    let hours = Math.floor(totalMinutes / 60);
+    let rest = Math.floor(totalMinutes % 60);
+    return `${hours}h ${rest}min`;
+  }
 };

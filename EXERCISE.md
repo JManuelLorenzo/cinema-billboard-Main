@@ -7,6 +7,7 @@
 ## 🎯 Objetivos de Aprendizaje
 
 Al completar este ejercicio, podrás:
+
 - Trabajar con APIs RESTful usando json-server
 - Implementar obtención de datos con gestión de estado apropiada
 - Formatear y transformar datos para su visualización
@@ -23,6 +24,7 @@ Al completar este ejercicio, podrás:
 Necesitas crear un servidor API local usando json-server que servirá los datos de las películas.
 
 **Tareas:**
+
 - Instalar json-server como dependencia de desarrollo en tu proyecto
 - Configurar json-server para servir datos desde el archivo `data/data.json`
 - Configurar el servidor para ejecutarse en el puerto 3000
@@ -31,7 +33,7 @@ Necesitas crear un servidor API local usando json-server que servirá los datos 
   - `/movies` - Retorna todas las películas
   - `/categories` - Retorna todas las categorías
 
-**Prueba:** Deberías poder abrir tu navegador y navegar a `http://localhost:3000/movies` y ver los datos de las películas.
+**Prueba:** Deberías poder abrir tu navegador y navegar a `http://localhost3000/movies` y ver los datos de las películas.
 
 ---
 
@@ -44,6 +46,7 @@ Las películas contienen datos numéricos que necesitan ser formateados para una
 Cada película tiene una calificación de 0 a 10. Necesitas convertir esto a un sistema visual de estrellas (1-5 estrellas).
 
 **Lógica de Conversión:**
+
 - Calificación 0.0 - 1.9 → 1 estrella ⭐
 - Calificación 2.0 - 3.9 → 2 estrellas ⭐⭐
 - Calificación 4.0 - 5.9 → 3 estrellas ⭐⭐⭐
@@ -51,11 +54,12 @@ Cada película tiene una calificación de 0 a 10. Necesitas convertir esto a un 
 - Calificación 8.0 - 10.0 → 5 estrellas ⭐⭐⭐⭐⭐
 
 **Tareas:**
+
 - Crear una función utilitaria que convierta una calificación numérica a emojis de estrellas
 - La función debe retornar un string conteniendo el número apropiado de emojis de estrellas
 - Usar esta función en tu componente Movie para mostrar estrellas en lugar de números
 
-**Ejemplo:** Una película con calificación 8.2 debería mostrar ⭐⭐⭐⭐⭐ 
+**Ejemplo:** Una película con calificación 8.2 debería mostrar ⭐⭐⭐⭐⭐
 utils/formatters.js Function: getRatingStars
 
 #### Parte B: Visualización de Duración
@@ -63,16 +67,19 @@ utils/formatters.js Function: getRatingStars
 Las duraciones de las películas están almacenadas en minutos. Necesitas formatearlas como horas y minutos.
 
 **Reglas de Formato:**
+
 - Si la duración tiene horas y minutos: "Xh Ymin"
 - Si la duración es menor a 60 minutos: "Ymin"
 - Usar solo números enteros (sin decimales)
 
 **Tareas:**
+
 - Crear una función utilitaria que convierta minutos al string formateado
 - Manejar ambos casos (con horas y sin horas)
 - Usar esta función en tu componente Movie para mostrar la duración formateada
 
 **Ejemplos:**
+
 - 68 minutos → "1h 8min"
 - 142 minutos → "2h 22min"
 - 45 minutos → "45min"
@@ -85,6 +92,7 @@ Las duraciones de las películas están almacenadas en minutos. Necesitas format
 Actualmente, la aplicación importa datos directamente del archivo JSON. Necesitas obtener los datos de tu API json-server en su lugar.
 
 **Tareas:**
+
 - Eliminar cualquier importación local del archivo data.json
 - Crear variables de estado para almacenar películas y categorías
 - Implementar una función async para obtener películas de la API
@@ -97,6 +105,7 @@ Actualmente, la aplicación importa datos directamente del archivo JSON. Necesit
 **Importante:** Asegúrate de que tanto películas como categorías sean obtenidas de la API, no de importaciones locales.
 
 **Endpoints disponibles:**
+
 - `http://localhost:3000/movies` - Obtiene todas las películas
 - `http://localhost:3000/categories` - Obtiene todas las categorías
 - `http://localhost:3000/movies?category=Romance` - Obtiene películas filtradas por categoría (ejemplo con Romance)
@@ -114,6 +123,7 @@ La aplicación tiene un SegmentControl con dos opciones. Necesitas implementar v
 Cuando "All Movies" está seleccionado, mostrar todas las películas en una única lista vertical desplazable.
 
 **Tareas:**
+
 - Detectar cuando el primer segmento (índice 0) está seleccionado
 - Renderizar todas las películas en un FlatList vertical
 - Cada película debe mostrar toda su información (título, póster, descripción, estrellas, duración)
@@ -125,6 +135,7 @@ Cuando "All Movies" está seleccionado, mostrar todas las películas en una úni
 Cuando "Movies By Category" está seleccionado, mostrar películas agrupadas por sus categorías.
 
 **Requisitos de Diseño:**
+
 - Para cada categoría:
   - Mostrar el nombre de la categoría como encabezado/título
   - Mostrar películas de esa categoría en una lista horizontal desplazable
@@ -133,6 +144,7 @@ Cuando "Movies By Category" está seleccionado, mostrar películas agrupadas por
 - Solo mostrar categorías que existan en el array de categorías de la API
 
 **Tareas:**
+
 - Detectar cuando el segundo segmento (índice 1) está seleccionado
 - Obtener y usar categorías de la API
 - Filtrar películas por categoría para cada sección
@@ -151,6 +163,7 @@ La aplicación tiene un modal para agregar películas, pero está incompleto. Ne
 #### Parte A: Completar el Formulario
 
 **Tareas:**
+
 - Agregar campos de entrada para todas las propiedades de la película:
   - Título (texto)
   - URL del Póster (texto)
@@ -172,6 +185,7 @@ La aplicación tiene un modal para agregar películas, pero está incompleto. Ne
 #### Parte B: Enviar a la API y Refrescar
 
 **Tareas:**
+
 - Implementar una petición POST para agregar la nueva película a la API
 - Enviar los datos de la película a `http://localhost:3000/movies`
 - Usar headers apropiados (`Content-Type: application/json`)
