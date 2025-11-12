@@ -3,20 +3,29 @@ import Movie from "../components/Movie";
 import AddMovieFloatingButton from "../components/AddMovieFloatingButton";
 import SegmentControl from "../components/SegmentControl";
 import AddMovieModal from "../components/AddMovieModal";
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import useFetch from "../hooks/useFetch";
 import { FlatList } from "react-native";
+import useCategoriesWithMovies from "../hooks/useCategoriesWithMovies";
 
 export default function Dashboard() {
   const { data, loading, error } = useFetch(
     "https://nondigestive-shea-divertedly.ngrok-free.dev/movies"
   );
+  const { data: dataCategories } = useFetch(
+    "https://nondigestive-shea-divertedly.ngrok-free.dev/categories"
+  );
 
-  const firstMovie = data?.[0];
+  const { data: dataDivided } = useCategoriesWithMovies(
+    "https://nondigestive-shea-divertedly.ngrok-free.dev",
+    dataCategories
+  );
+
+  console.log(dataDivided);
   const [modalVisible, setModalVisible] = useState(false);
   const [segment, setSegment] = useState(0);
-  if (!firstMovie) return <></>;
+
   return (
     <SafeAreaView style={styles.container}>
       <SegmentControl
@@ -42,7 +51,31 @@ export default function Dashboard() {
           keyExtractor={(item) => item.id}
         />
       ) : (
-        <Text>Working to!!!</Text>
+        <FlatList
+          data={dataDivided}
+          renderItem={({ item }) => (
+            <View>
+              <Text style={{ fontSize: 20, padding: 40 }}>
+                {item.category.name}
+              </Text>
+              <FlatList
+                horizontal
+                data={item.movies}
+                renderItem={({ item: movie }) => (
+                  <Movie
+                    title={movie.title}
+                    poster={movie.poster}
+                    description={movie.description}
+                    duration={movie.duration}
+                    rating={movie.rating}
+                  />
+                )}
+                keyExtractor={(item) => item.id}
+              ></FlatList>
+            </View>
+          )}
+          keyExtractor={(item) => item.category.id}
+        />
       )}
       <AddMovieFloatingButton
         style={{
