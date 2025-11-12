@@ -8,21 +8,19 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import useFetch from "../hooks/useFetch";
 import { FlatList } from "react-native";
 import useCategoriesWithMovies from "../hooks/useCategoriesWithMovies";
+import usePost from "../hooks/usePost";
 
 export default function Dashboard() {
-  const { data, loading, error } = useFetch(
-    "https://nondigestive-shea-divertedly.ngrok-free.dev/movies"
-  );
-  const { data: dataCategories } = useFetch(
-    "https://nondigestive-shea-divertedly.ngrok-free.dev/categories"
-  );
+  const [refresh, setRefresh] = useState(false);
+  const BASE_URL = "https://nondigestive-shea-divertedly.ngrok-free.dev";
 
+  const { data, loading, error } = useFetch(`${BASE_URL}/movies`, refresh);
+  const { data: dataCategories } = useFetch(`${BASE_URL}/categories`, refresh);
   const { data: dataDivided } = useCategoriesWithMovies(
-    "https://nondigestive-shea-divertedly.ngrok-free.dev",
+    BASE_URL,
     dataCategories
   );
-
-  console.log(dataDivided);
+  const { postData } = usePost(`${BASE_URL}/movies`);
   const [modalVisible, setModalVisible] = useState(false);
   const [segment, setSegment] = useState(0);
 
@@ -48,7 +46,7 @@ export default function Dashboard() {
               rating={item.rating}
             />
           )}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => String(item.id)}
         />
       ) : (
         <FlatList
@@ -70,7 +68,7 @@ export default function Dashboard() {
                     rating={movie.rating}
                   />
                 )}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => String(item.id)}
               ></FlatList>
             </View>
           )}
@@ -91,9 +89,10 @@ export default function Dashboard() {
       <AddMovieModal
         visible={modalVisible}
         onClose={() => setModalVisible(false)}
-        onSubmit={() => {
-          // Handle form submission
+        onSubmit={(newMovie) => {
+          postData(newMovie);
           console.log("Movie submitted");
+          setRefresh(!refresh);
         }}
       />
     </SafeAreaView>

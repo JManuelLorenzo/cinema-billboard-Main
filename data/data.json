@@ -52,7 +52,7 @@
       "description": "Two strangers meet in the city of lights and discover an unexpected connection.",
       "poster": "https://images.unsplash.com/photo-1663868290007-e8df80a5b909?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb21hbnRpYyUyMG1vdmllfGVufDF8fHx8MTc2MTcyODE3OHww&ixlib=rb-4.1.0&q=80&w=1080",
       "duration": 112,
-      "rating": 8.0
+      "rating": 8
     },
     {
       "id": "7",
@@ -70,7 +70,7 @@
       "description": "Explorers venture into uncharted space to establish a new colony.",
       "poster": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcGFjZSUyMGNvbG9ueXxlbnwxfHx8fDE3NjE3NTc5NzlfMA&ixlib=rb-4.1.0&q=80&w=1080",
       "duration": 145,
-      "rating": 9.0
+      "rating": 9
     },
     {
       "id": "9",
@@ -152,14 +152,113 @@
       "poster": "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxyb21hbnRpYyUyMGxvdmV8ZW58MXx8fHwxNzYxNzI4MTc4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "duration": 118,
       "rating": 8.2
+    },
+    {
+      "id": "3e53",
+      "title": "A",
+      "poster": "A",
+      "description": "A",
+      "duration": 2,
+      "rating": 2,
+      "category": "Action"
+    },
+    {
+      "id": "d3c7",
+      "title": "A",
+      "poster": "2",
+      "description": "2",
+      "duration": 2,
+      "rating": 1,
+      "category": "Sci-Fi"
+    },
+    {
+      "id": "b7f0",
+      "title": "S2aa",
+      "poster": "1",
+      "description": "121",
+      "duration": 2,
+      "rating": 4,
+      "category": "Action"
+    },
+    {
+      "id": "c1a0",
+      "title": "Cs",
+      "poster": "21",
+      "description": "1",
+      "duration": 1,
+      "rating": 1,
+      "category": "Action"
+    },
+    {
+      "id": "44b8",
+      "title": "22",
+      "poster": "12",
+      "description": "2",
+      "duration": 1,
+      "rating": 2,
+      "category": "Sci-Fi"
+    },
+    {
+      "id": "e84e",
+      "title": "AS",
+      "poster": "1",
+      "description": "2",
+      "duration": 1,
+      "rating": 2,
+      "category": "Sci-Fi"
+    },
+    {
+      "id": "a22e",
+      "title": "Ex",
+      "poster": "2",
+      "description": "1",
+      "duration": 1,
+      "rating": 1,
+      "category": "Action"
+    },
+    {
+      "id": "ac2a",
+      "title": "Five Nights at Freddy2",
+      "poster": "11",
+      "description": "2",
+      "duration": 1,
+      "rating": 1,
+      "category": "Horror"
+    },
+    {
+      "id": "61c5",
+      "title": "Ex",
+      "poster": "3e",
+      "description": "3",
+      "duration": 2,
+      "rating": 1,
+      "category": "Sci-Fi"
     }
   ],
   "categories": [
-    { "id": "1", "name": "Action" },
-    { "id": "2", "name": "Sci-Fi" },
-    { "id": "3", "name": "Horror" },
-    { "id": "4", "name": "Comedy" },
-    { "id": "5", "name": "Drama" },
-    { "id": "6", "name": "Romance" }
+    {
+      "id": "1",
+      "name": "Action"
+    },
+    {
+      "id": "2",
+      "name": "Sci-Fi"
+    },
+    {
+      "id": "3",
+      "name": "Horror"
+    },
+    {
+      "id": "4",
+      "name": "Comedy"
+    },
+    {
+      "id": "5",
+      "name": "Drama"
+    },
+    {
+      "id": "6",
+      "name": "Romance"
+    }
   ]
 }
